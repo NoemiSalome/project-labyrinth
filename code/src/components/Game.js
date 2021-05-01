@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components/macro";
 
 import { nextStep } from "../reducers/games";
+import FinalPage from "./FinalPage"
 
 const LoadingContainer = styled.div`
   background-color: black;
@@ -51,7 +52,7 @@ const DescriptionTitle = styled.h1`
 const Text = styled.p`
   font-size: 10px; 
   background-color: black;
-  color: white;
+  color: grey;
   @media (min-width: 668px) {
     font-size: 16px;
   }
@@ -63,16 +64,18 @@ const Button = styled.button`
   background-color: #fbafdd;
   color: black;
   border: 2px solid black;
-  border-radius: 50%;
+  border-radius: 20%;
   text-align: center;
   padding: 10px 20px;
-    margin: 15px 0;
-  height: 80px;
+  font-family: 'Roboto Mono', monospace;
+  font-size:12px;
+  font-weight: bold;
 `;
 
 const Game = () => {
   const userName = useSelector((store) => store.games.username);
   const actions = useSelector((store) => store.games.description);
+  const steps = useSelector((store) => store.games.description.actions)
   const description = useSelector(
     (store) => store.games.description.description
   );
@@ -80,11 +83,15 @@ const Game = () => {
   const dispatch = useDispatch();
 
   return (
-    <>
+
       <Wrapper>
         <LoadingContainer>
           <DescriptionTitle>{description}</DescriptionTitle>
         </LoadingContainer>
+        {steps.length !== 0
+        ?    
+        <>
+
         {actions.actions.map((action) => ( 
           <ActionContainer key={action.description}>
             <Text>{action.description}</Text>
@@ -95,8 +102,12 @@ const Game = () => {
             </Button>
           </ActionContainer>
         ))}
+        
+        </>
+        :
+        <FinalPage /> }
       </Wrapper>
-    </>
+
   );
 };
 

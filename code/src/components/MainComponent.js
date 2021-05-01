@@ -24,7 +24,6 @@ const MainComponent = () => {
 
   return (
     <Maincontainer>
-      
       {userName ? <Game /> : <StartScreen />}
     </Maincontainer>
   );
