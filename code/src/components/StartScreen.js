@@ -12,25 +12,23 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
   @media (min-width: 668px) {
     margin-top: 20%;
   }
   @media (min-width: 1024px) {
     margin-top: 25%;
   }
-`
-
+`;
 
 const Title = styled.h1`
   padding: 0 15px;
   font-size: 25px;
-  color: #C4007D;
+  color: #c4007d;
   text-align: center;
-`
+`;
 
 const IntroductionText = styled.h2`
-  font-size: 12px;  
+  font-size: 12px;
   text-align: center;
   padding: 0 15px;
   @media (min-width: 668px) {
@@ -54,17 +52,17 @@ const Button = styled.button`
 `;
 
 const Input = styled.input`
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   background-color: transparent;
   border-bottom: 2px solid pink;
   padding: 10px;
   margin: 30px;
   height: 30px;
-  color:white;
+  color: white;
   &::placeholder {
     color: white;
     font-size: 10px;
-}
+  }
 `;
 
 const StartScreen = () => {
@@ -81,7 +79,9 @@ const StartScreen = () => {
     <>
       <Container>
         <Title>Welcome to our splendid game!</Title>
-        <IntroductionText>Type your name to enter the labyrinth...</IntroductionText>
+        <IntroductionText>
+          Type your name to enter the labyrinth...
+        </IntroductionText>
         <Input
           type="text"
           placeholder="Enter your name to start"
